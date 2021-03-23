@@ -39,7 +39,7 @@ trait CreateHydratorTrait
      * You can validate the request.
      * @throws JsonApiExceptionInterface
      */
-    abstract protected function validateRequest(JsonApiRequestInterface $request): void;
+    abstract protected function validateRequest(JsonApiRequestInterface $request, $domainObject): void;
 
     /**
      * Produces a new ID for the domain objects.
@@ -97,7 +97,7 @@ trait CreateHydratorTrait
 
         $this->validateType($data, $exceptionFactory);
         $domainObject = $this->hydrateIdForCreate($domainObject, $data, $request, $exceptionFactory);
-        $this->validateRequest($request);
+        $this->validateRequest($request, $domainObject);
         $domainObject = $this->hydrateAttributes($domainObject, $data);
         $domainObject = $this->hydrateRelationships($domainObject, $data, $exceptionFactory);
 

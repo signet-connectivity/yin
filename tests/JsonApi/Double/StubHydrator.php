@@ -60,7 +60,7 @@ class StubHydrator extends AbstractHydrator
     {
     }
 
-    protected function validateRequest(JsonApiRequestInterface $request): void
+    protected function validateRequest(JsonApiRequestInterface $request, $domainObject): void
     {
     }
 

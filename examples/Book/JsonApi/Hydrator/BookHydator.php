@@ -85,7 +85,7 @@ class BookHydator extends AbstractHydrator
      *
      * @throws JsonApiExceptionInterface
      */
-    protected function validateRequest(JsonApiRequestInterface $request): void
+    protected function validateRequest(JsonApiRequestInterface $request, $domainObject): void
     {
         // WARNING! THIS CONDITION CONTRADICTS TO THE SPEC
         if ($request->getAttribute("title") === null) {

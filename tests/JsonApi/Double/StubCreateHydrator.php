@@ -65,7 +65,7 @@ class StubCreateHydrator
         return $domainObject;
     }
 
-    protected function validateRequest(JsonApiRequestInterface $request): void
+    protected function validateRequest(JsonApiRequestInterface $request, $domainObject): void
     {
         if ($this->logicException) {
             throw new LogicException();

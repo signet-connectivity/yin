@@ -25,7 +25,7 @@ trait UpdateHydratorTrait
      * You can validate the request.
      * @throws JsonApiExceptionInterface
      */
-    abstract protected function validateRequest(JsonApiRequestInterface $request): void;
+    abstract protected function validateRequest(JsonApiRequestInterface $request, $domainObject): void;
 
     /**
      * Sets the given ID for the domain object.
@@ -105,7 +105,7 @@ trait UpdateHydratorTrait
 
         $this->validateType($data, $exceptionFactory);
         $domainObject = $this->hydrateIdForUpdate($domainObject, $data, $exceptionFactory);
-        $this->validateRequest($request);
+        $this->validateRequest($request, $domainObject);
         $domainObject = $this->hydrateAttributes($domainObject, $data);
         $domainObject = $this->hydrateRelationships($domainObject, $data, $exceptionFactory);
 
